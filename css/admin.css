@@ -1,0 +1,107 @@
+.material-slider-div{
+	position: relative;
+}
+
+.material-slider-div .hide{
+	display: none;
+}
+
+.material-slider-div .material-specific-size{
+	margin-right: 5px;
+	position: relative;
+	top:3px;
+	float:left;
+}
+.material-slider-div .input_material_size{
+	float:left;
+	width: 100px;
+}
+
+.material-slider-div .material-price{
+	float: left;
+}
+
+.material-slider-div .material-specific{
+	float: left;
+	position: absolute;
+	right:0px;
+	top:0px;
+}
+
+.material-slider{
+	margin-top:10px;
+}
+
+#color_code_preview{
+	background: white;
+	padding: 0px 15px;
+	margin: 5px;
+}
+
+form#config .displayed_flag {
+	float: left;
+	margin: 4px 0 0 4px;
+	position: relative;
+	top: -14px;
+	cursor: pointer;
+}
+
+form#config .language_flags {
+	display: none;
+	float: left;
+	background: #FFF;
+	margin: 4px;
+	padding: 8px;
+	width: 80px;
+	border: 1px solid #555;
+}
+
+.ctd_fix_form .margin-form{
+	position: relative;
+	top: 1px;
+	font-size: 13px;
+}
+
+.ctd_chk_btn{
+	color: #008FFF !important;
+	text-decoration: none;
+}
+
+td.dragHandle{
+	cursor: move;
+}
+
+.ctd_multiselect{
+	width: 300px;
+	min-height: 200px;
+	max-height: 300px;
+}
+
+.ctd_select_link {
+	font-size: 12px;
+	color: #08C !important;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+div.ctd_image_row{
+	border-bottom: 1px solid #DADADA;
+	padding: 2px;
+	float: left;
+	clear: both;
+}
+
+div.ctd_image_row:hover{
+	background: #CDF3FF;
+}
+
+.ctd_image_row span{
+	display: inline-block;
+	width: 150px;
+	font-size: 11px;
+	color: #000;
+}
+
+.ctd_image_row label {
+	float: none;
+}

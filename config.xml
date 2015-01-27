@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>customtextdesign</name>
+	<displayName><![CDATA[Product Customization]]></displayName>
+	<version><![CDATA[4.1.8]]></version>
+	<description><![CDATA[Allow your customers to preview and order their customized products]]></description>
+	<author><![CDATA[Tuni-Soft]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<confirmUninstall><![CDATA[All data associated with the module will be lost! Are you sure you want to proceed ?]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>
