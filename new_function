@@ -14,7 +14,6 @@
 			$cy = 1;
 			$tr = imagecolorallocatealpha(self::$image, 0, 0, 0, 127);
 			$tlen = Tools::strlen(self::$text);
-			$arccentre = ($e + $s) / 2;
 			$txt_size = self::calculateTextBox(self::$text, self::$font, self::$size, 0);
 			$c = self::$curve;
 
@@ -106,8 +105,6 @@
 				for ($i = 0; $i < $tlen; $i++)
 				{
 					$ch = self::$text{$i};
-					if (self::$curve > 0)
-						$bounds['min_h'] = 0;
 					$measure = self::preciseMeasure($ch, self::$font, self::$size, 1);
 					$box = self::imagettftext(self::$image, self::$size, $angle, $tx, $ty, self::$color, self::$font, $ch);
 					$width = $measure['w'] - $box['x_correction'];
