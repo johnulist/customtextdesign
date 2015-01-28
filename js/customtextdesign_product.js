@@ -487,7 +487,7 @@ var ctdPanel = function(panel){
 			}
 			$('.ctd_outbound').removeClass('ctd_outbound');
 		})
-		.on('mouseenter','.ft-container',function(){
+		.on('click','.ft-container',function(){
 			var id_item = $(this).find('img:eq(0)').prop('id');
 			clearTimeout(_panel.timeouts[id_item]);
 			_panel.timeouts[id_item] = null;
@@ -501,7 +501,7 @@ var ctdPanel = function(panel){
 						$('#' + id_item).closest('.ft-container').removeClass('ft-hover');
 					}
 				})
-				},2000);
+				},1000);
 		}).on('mouseenter touchstart',function(){
 			var id_item = 'ctd_preview';
 			clearTimeout(_panel.timeouts[id_item]);
