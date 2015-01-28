@@ -253,8 +253,9 @@
 		{
 			if ($textured == 'textured')
 				self::$color = imagecolorallocate(self::$image, 127, 127, 127);
+// For testing letterspace, curve input from user is used
 			if (self::$curve)
-				return self::drawTextOnArc();
+				return self::drawTextOnLetterspace();
 			if (! self::$center)
 			{
 				imagealphablending(self::$image, 1);
@@ -446,6 +447,25 @@
 				'img' => $tmp,
 				'rect' => $box
 			);
+		}
+		
+		public static function drawTextOnLetterspace($pad = 0)
+		{
+// For testing, spacing is taken from curve input
+			$letterspace = self::$curve;
+// Set variable width to be manipulated by input
+			$temp_x = $x;
+// Store text to get individual letters in loop
+			$text = self::$text;
+// Run loop for each letter, changing width as desired by user
+			for ($i = 0; $i < strlen($text); $i++)
+			{
+			    $bbox = imagettftext(self::$image, 16, 0, $temp_x, 16, self::$color, self::$font, $text[$i]);
+			    $temp_x += $letterspace + ($bbox[2] - $bbox[0]);
+			}
+// Return image
+			$tr = imagecolorallocatealpha(self::$image, 0, 0, 0, 127);
+			return self::imagetrim(self::$image, $tr);
 		}
 
 		public static function drawTextOnArc($pad = 0)
