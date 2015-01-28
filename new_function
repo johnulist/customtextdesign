@@ -1,9 +1,6 @@
 		public static function drawTextOnFoo($pad = 0)
 		{
-			$width = 5000;
-			$height = 5000;
 			imagettftext(self::$image, 16, 0, 0, 16, self::$color, self::$font, self::$text);
 			$tr = imagecolorallocatealpha(self::$image, 0, 0, 0, 127);
-
 			return self::imagetrim(self::$image, $tr);
 		}
