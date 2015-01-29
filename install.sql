@@ -166,6 +166,7 @@ CREATE TABLE IF NOT EXISTS `__PREFIX_custom_item` (
   `height` int(11) NOT NULL DEFAULT 0,
   `alpha` int(11) NOT NULL DEFAULT 0,
   `curve` int(11) NOT NULL DEFAULT 0,
+  `letterspace` int(11) NOT NULL DEFAULT 0,
   `price` decimal(20,6) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_custom_item`)
 ) ENGINE=_MYSQL_ENGINE_ DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -176,6 +177,7 @@ CREATE TABLE IF NOT EXISTS `__PREFIX_product` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `alpha` tinyint(1) NOT NULL DEFAULT 0,
   `curve` tinyint(1) NOT NULL DEFAULT 0,
+  `letterspace` tinyint(1) NOT NULL DEFAULT 0,
   `initial_curve` int(11) NOT NULL DEFAULT 0,
   `picker` tinyint(1) NOT NULL DEFAULT 0,
   `upload` tinyint(1) NOT NULL DEFAULT 0,
@@ -241,8 +243,8 @@ CREATE TABLE IF NOT EXISTS `__PREFIX_product` (
   PRIMARY KEY (`id`)
 ) ENGINE=_MYSQL_ENGINE_ DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-INSERT INTO `__PREFIX_product` (`id_product`, `active`, `alpha`, `curve`, `initial_curve`, `picker`, `upload`, `upload_max`, `upload_price`, `colors`, `fonts`, `materials`, `image_groups`, `attributes`, `text_price`, `image_price`, `design_price`, `min_size`, `max_length`, `show_price`, `hide_colors`, `hide_fonts`, `hide_materials`, `expanded`, `id_default_img`, `show_btn`, `images_first`, `show_download_btn`, `popup`, `use_tax`, `colors_all`, `fonts_all`, `materials_all`, `image_groups_all`, `attributes_all`, `url_upload`, `hide_text`, `customsize`, `customsize_price`, `customsize_minw`, `customsize_minh`, `customsize_maxw`, `customsize_maxh`, `customsize_initw`, `customsize_inith`, `customcolor`, `initial_color`, `custom_fields`, `disable_drag`, `disable_resize`, `show_rotator`, `extra_btns`,`custompicker`,`customcolors`,`customcolors_all`, `show_stack`, `image_fixed`, `required`, `check_bounds`, `required_bounds`, `imagecolor`, `initial_img_color`, `imagepicker`, `imagecolors`, `imagecolors_all`, `free_design`)
-VALUES (0, 0, 1, 1, 0, 1, 1, 2, '1000.000000', '', '', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, '0.000000', '1.00', '1.00', '0.00', '0.00', '0.00', '0.00', 0, '#11daf5', 0, 0, 0, 1, 0, 1, '', 1, 1, 0, 0, 0, 0, 0, '#11daf5', 0, '', 1, 0);
+INSERT INTO `__PREFIX_product` (`id_product`, `active`, `alpha`, `curve`, `letterspace`, `initial_curve`, `picker`, `upload`, `upload_max`, `upload_price`, `colors`, `fonts`, `materials`, `image_groups`, `attributes`, `text_price`, `image_price`, `design_price`, `min_size`, `max_length`, `show_price`, `hide_colors`, `hide_fonts`, `hide_materials`, `expanded`, `id_default_img`, `show_btn`, `images_first`, `show_download_btn`, `popup`, `use_tax`, `colors_all`, `fonts_all`, `materials_all`, `image_groups_all`, `attributes_all`, `url_upload`, `hide_text`, `customsize`, `customsize_price`, `customsize_minw`, `customsize_minh`, `customsize_maxw`, `customsize_maxh`, `customsize_initw`, `customsize_inith`, `customcolor`, `initial_color`, `custom_fields`, `disable_drag`, `disable_resize`, `show_rotator`, `extra_btns`,`custompicker`,`customcolors`,`customcolors_all`, `show_stack`, `image_fixed`, `required`, `check_bounds`, `required_bounds`, `imagecolor`, `initial_img_color`, `imagepicker`, `imagecolors`, `imagecolors_all`, `free_design`)
+VALUES (0, 0, 1, 1, 1, 0, 1, 1, 2, '1000.000000', '', '', '', '', '', '0.000000', '0.000000', '0.000000', '0.000000', 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, '0.000000', '1.00', '1.00', '0.00', '0.00', '0.00', '0.00', 0, '#11daf5', 0, 0, 0, 1, 0, 1, '', 1, 1, 0, 0, 0, 0, 0, '#11daf5', 0, '', 1, 0);
 
 CREATE TABLE IF NOT EXISTS `__PREFIX_product_trans` (
   `id_product` int(10) unsigned NOT NULL DEFAULT 0,

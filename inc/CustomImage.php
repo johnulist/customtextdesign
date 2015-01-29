@@ -37,6 +37,7 @@
 		public static $type = 'img';
 		public static $center = 0;
 		public static $curve = 0;
+		public static $letterspace = 0;
 
 		public static $output = 0;
 		public static $debug = 0;
@@ -151,6 +152,15 @@
 			$font = self::getFont($data['font']);
 			$color = self::getColor($data['color']);
 			self::$curve = (int)$data['curve'];
+			self::$letterspace = (int)$data['letterspace'];
+			// Get Hex Color
+			$r = 0;
+			$g = 0;
+			$b = 0;
+			$a = 0;
+			$is_color = true;
+
+			self::$letterspace = (int)$data['letterspace'];
 			// Get Hex Color
 			$r = 0;
 			$g = 0;
@@ -255,6 +265,9 @@
 				self::$color = imagecolorallocate(self::$image, 127, 127, 127);
 			if (self::$curve)
 				return self::drawTextOnArc();
+			// Else if to prevent conflict between functions until solution is found
+			else if (self::$letterspace)
+				return self::drawTextOnLetterspace();
 			if (! self::$center)
 			{
 				imagealphablending(self::$image, 1);
@@ -448,6 +461,24 @@
 			);
 		}
 
+		public static function drawTextOnLetterspace($pad = 0)
+		{
+// For testing, spacing is taken from curve input
+			$letterspace = self::$letterspace;
+// Set variable width to be manipulated by input
+			$temp_x = $x;
+// Store text to get individual letters in loop
+			$text = self::$text;
+// Run loop for each letter, changing width as desired by user
+			for ($i = 0; $i < strlen($text); $i++)
+			{
+			    $bbox = imagettftext(self::$image, 16, 0, $temp_x, 16, self::$color, self::$font, $text[$i]);
+			    $temp_x += $letterspace + ($bbox[2] - $bbox[0]);
+			}
+// Return image
+			$tr = imagecolorallocatealpha(self::$image, 0, 0, 0, 127);
+			return self::imagetrim(self::$image, $tr);
+		}
 		public static function drawTextOnArc($pad = 0)
 		{
 			if (self::$curve > 0)
@@ -898,6 +929,7 @@
 			$md5data['type'] = 'img';
 			$md5data['forpanel'] = 0;
 			$md5data['curve'] = (int)$data['curve'];
+			$md5data['letterspace'] = (int)$data['letterspace'];
 
 			$hash = md5(serialize($md5data));
 			self::$hash = $hash;
@@ -1679,7 +1711,7 @@
 		}
 
 		public static function render($text, $font, $clr, $color = 0, $size = 4, $alpha = 0, $ignore_space = 0,
-			$mirror = 0, $center = 0, $curve = 0, $type = 'img', $forpanel = 0)
+			$mirror = 0, $center = 0, $curve = 0, $letterspace = 0, $type = 'img', $forpanel = 0)
 		{
 			$data = array();
 			$data['text'] = $text;
@@ -1694,6 +1726,7 @@
 			$data['type'] = $type;
 			$data['forpanel'] = $forpanel;
 			$data['curve'] = (int)$curve;
+			$data['letterspace'] = (int)$letterspace;
 
 			return CustomImage::preview($data, 0).'.png';
 		}

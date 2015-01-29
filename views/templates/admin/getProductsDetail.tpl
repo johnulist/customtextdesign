@@ -179,6 +179,12 @@
 			<label>{l s='Angle' mod='customtextdesign'}:</label>
 			{Tools::ps_round($item.angle,2)|escape:'htmlall':'UTF-8'}
 		</div>
+		{if (int)$item.letterspace}
+		<div class="ctd_sl_fix">
+			<label>{l s='Letterspace' mod='customtextdesign'}:</label>
+			<b>{$item.letterspace|escape:'htmlall':'UTF-8'}%</b>
+		</div>
+		{/if}
 		{if (int)$item.curve}
 		<div class="ctd_sl_fix">
 			<label>{l s='Curve' mod='customtextdesign'}:</label>

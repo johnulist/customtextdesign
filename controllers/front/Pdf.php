@@ -69,6 +69,7 @@
 				$data['type'] = 'img';
 				$data['forpanel'] = 0;
 				$data['curve'] = 0;
+				$data['letterspace'] = 0;
 
 				$this->module->getPath();
 				$preview = CustomImage::preview($data, false);

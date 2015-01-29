@@ -603,6 +603,32 @@ var ctdPanel = function(panel){
 			return false;
 		});
 
+		function ctd_letterspace_slider(event, ui){
+			var value = ui.value;
+			var percent = value;
+			$('#ctd_letterspace_slider_value').text(percent + '%');
+		}
+
+		function ctd_letterspace_slider_stop(event, ui){
+			ctd_letterspace_slider(event, ui);
+			_panel.applyText();
+		}
+
+		$('#ctd_letterspace_slider').slider({
+			min: -100,
+			max: 100,
+			value: customtextdesign_initial_letterspace,
+			slide: ctd_letterspace_slider,
+			stop:  ctd_letterspace_slider_stop
+		});
+
+		$('#ctd_letterspace_reset').on('click',function(){
+			$('#ctd_letterspace_slider').slider('value', 0);
+			$('.ctd_letterspace_slider_value').text('0%');
+			_panel.applyText();
+			return false;
+		});
+
 		if($('#ctd_rotator').length){
 
 			function ctd_rotator(event, ui){
@@ -966,6 +992,7 @@ var ctdPanel = function(panel){
 		"&alpha="			+	values.alpha +
 		"&material="		+	values.material +
 		"&curve="			+	values.curve +
+		"&letterspace="		+	values.letterspace +
 		"&mirror="			+	values.mirror +
 		"&center="			+	values.center +
 		"&forpanel="		+	values.forpanel +
@@ -986,6 +1013,7 @@ var ctdPanel = function(panel){
 		values.clr = $('.ctd_picker').css('background-color').replace('#','');
 		values.alpha = $('#ctd_alpha_slider').length ? $('#ctd_alpha_slider').slider('value') : 0;
 		values.curve = $('#ctd_curve_slider').length ? $('#ctd_curve_slider').slider('value') : 0;
+		values.letterspace = $('#ctd_letterspace_slider').length ? $('#ctd_letterspace_slider').slider('value') : 0;
 		values.font = $('#ctd_font .dd-selected').find('.dd-desc').text();
 		values.material = $('#ctd_material').val();
 		values.mirror = _panel.parseInt($('#ctd_mirror').prop('checked') * 1);
@@ -1016,6 +1044,10 @@ var ctdPanel = function(panel){
 		if($('#ctd_curve_slider').length){
 			$('#ctd_curve_slider').slider('value', values.curve);
 			$('#ctd_curve_slider_value').text(values.curve + '%');
+		}
+		if($('#ctd_letterspace_slider').length){
+			$('#ctd_letterspace_slider').slider('value', values.letterspace);
+			$('#ctd_letterspace_slider_value').text(values.letterspace + '%');
 		}
 		return values;
 	}

@@ -61,6 +61,7 @@
 	$data['type'] = Tools::getValue('type');
 	$data['forpanel'] = (int)Tools::getValue('forpanel');
 	$data['curve'] = (int)Tools::getValue('curve');
+	$data['letterspace'] = (int)Tools::getValue('letterspace');
 
 	CustomImage::preview($data);
 ?>

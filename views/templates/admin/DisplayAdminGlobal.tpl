@@ -91,6 +91,20 @@
 								<td valign="top" width="250"><label>&nbsp;</label></td>
 								<td style="padding-bottom:5px;">
 									<label style="float: none;">
+										<input type="checkbox" {if isset($ctd_product.letterspace) AND $ctd_product.letterspace}checked="checked"{/if} class="ctd-ajx" data-name="letterspace" id="ctd_letterspace"> {l s='Allow letter spacing text' mod='customtextdesign'}
+									</label>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" width="250"><label>{l s='Initial Letterspace' mod='customtextdesign'}:</label></td>
+								<td style="padding-bottom:5px;">
+									<input id="ctd_initial_letterspace" type="text" data-name="initial_letterspace" value="{if isset($ctd_product.initial_letterspace)}{$ctd_product.initial_letterspace|intVal}{else}0{/if}" onchange="noComma('ctd_initial_letterspace');" class="ctd-ajx">
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" width="250"><label>&nbsp;</label></td>
+								<td style="padding-bottom:5px;">
+									<label style="float: none;">
 										<input type="checkbox" {if isset($ctd_product.curve) AND $ctd_product.curve}checked="checked"{/if} class="ctd-ajx" data-name="curve" id="ctd_curve"> {l s='Allow curved text' mod='customtextdesign'}
 									</label>
 								</td>

@@ -102,6 +102,7 @@
 	if(typeof idDefaultImage == 'undefined') idDefaultImage = "{$ctd_product.id_default_img|intval}";
 	{/if}
 	var customtextdesign_min_size = {$ctd_product.min_size|intVal};
+	var customtextdesign_initial_letterspace = {$ctd_product.initial_letterspace|intVal};
 	var customtextdesign_initial_curve = {$ctd_product.initial_curve|intVal};
 	var customtextdesign_max_length = {$ctd_product.max_length|intVal};
 	var customtextdesign_download = "{$customtextdesign_download|stripslashes}";
@@ -334,6 +335,19 @@
 						<a style="display:none;background-color:#FFF" data-color="0" class="ctd_picker" href="#"></a>
 						{/if}
 					</ul>
+					
+					<!-- Included as stopgap fix to make this module compatible with the latest release of PrestaShop -->
+					<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
+
+					{if  $ctd_product.letterspace}
+					<div class="ctd_letterspace">
+						<label style="float:left" class="ctd_label">{l s='Letter Space' mod='customtextdesign'}:</label>
+						<span class="ctd_slider_value" id="ctd_letterspace_slider_value">{$ctd_product.initial_letterspace|intVal}%</span>
+						<a class="ctd_slider_reset" id="ctd_letterspace_reset" href="#">{l s='reset' mod='customtextdesign'}</a>
+						<div class="clr"></div>
+						<div id="ctd_letterspace_slider"></div>
+					</div>
+					{/if}
 
 					{if  $ctd_product.curve}
 					<div class="ctd_curve">
